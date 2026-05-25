@@ -25,4 +25,4 @@ RUN g++ main.cpp roleta.cpp -o roleta_jogo
 
 EXPOSE 10000
 
-CMD ["ttyd", "-p", "10000", "-W", "./roleta_jogo"]
+CMD ["ttyd", "-p", "10000", "./roleta_jogo"]
