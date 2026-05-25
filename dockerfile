@@ -25,4 +25,4 @@ RUN g++ main.cpp roleta.cpp -o roleta_jogo
 
 EXPOSE 10000
 
-CMD ["ttyd", "-p", "10000", "-i", "0.0.0.0", "-t", "fontSize=40", "-t", "enableZmodem=true", "-t", "cursorBlink=true", "bash", "-c", "while true; do clear; ./roleta_jogo; echo ''; echo 'Pressione ENTER para jogar novamente...'; read; done"]
+CMD ["ttyd", "-p", "10000", "-i", "0.0.0.0", "-t", "fontSize=37", "-t", "enableZmodem=true", "-t", "cursorBlink=true", "bash", "-c", "while true; do clear; ./roleta_jogo; echo ''; echo 'Pressione ENTER para jogar novamente...'; read; done"]
