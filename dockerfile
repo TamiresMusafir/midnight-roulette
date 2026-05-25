@@ -25,4 +25,4 @@ RUN g++ main.cpp roleta.cpp -o roleta_jogo
 
 EXPOSE 10000
 
-CMD ["ttyd", "-p", "10000", "./roleta_jogo"]
+CMD ["ttyd", "-p", "10000", "-i", "lo", "bash", "-c", "while true; do ./roleta_jogo; echo 'Pressione ENTER para jogar novamente...'; read; done"]
