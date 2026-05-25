@@ -30,6 +30,25 @@ O projeto foi dividido em três arquivos para manter a organização e legibilid
 * `roleta.cpp`: Implementação da lógica das funções (Inicialização, Listagem e Giro).
 * `main.cpp`: Controle do fluxo do jogo, interações de entrada/saída e o menu principal.
 
+## 🎰 Como Jogar
+
+Você pode curtir a Roleta da Meia Noite de duas formas: direto pelo navegador ou compilando o código na sua própria máquina.
+
+### Opção 1: Jogar Direto pelo Navegador (Sem Instalar Nada)
+O jogo está hospedado nas nuvens e envelopado em um terminal web via Docker.
+* **Link de Acesso:** [https://midnight-roulette.onrender.com](https://midnight-roulette.onrender.com)
+
+> ⚠️ **Nota do Servidor:** Como o jogo está em um servidor gratuito, se o link ficar sem acessos por mais de 15 minutos ele entra em "modo de espera". Ao clicar no link, **pode levar cerca de 1 minuto para a página carregar** enquanto o servidor "acorda". Se travar, basta atualizar a página (F5)!
+
+### Opção 2: Rodar Localmente (Via Terminal Linux / macOS / Windows)
+Se você preferir baixar os arquivos e compilar no seu computador, garanta que possui o compilador `g++` instalado e siga os passos abaixo:
+
+1. **Clone o repositório:**
+
+       git clone [https://github.com/TamiresMusafir/midnight-roulette.git](https://github.com/TamiresMusafir/midnight-roulette.git)
+       cd midnight-roulette
+       g++ main.cpp roleta.cpp -o roleta_jogo
+       ./roleta_jogo
 ---
 
 ## 📁 Estrutura do Repositório
