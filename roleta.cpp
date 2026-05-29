@@ -2,11 +2,30 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include <unistd.h>
 
 using namespace std;
 
+string cores(int n){
+    int vermelhos[] = {
+    1,3,5,7,9,12,14,16,18,
+    19,21,23,25,27,30,32,34,36
+    };
+
+    if(n == 0)
+        return "\x1b[42m\x1b[30m";
+
+        for(int i = 0; i < 18; i++){
+            if(n == vermelhos[i]){
+                return "\x1b[41m\x1b[37m";
+            }
+        }
+        
+    return "\x1b[40m\x1b[37m";
+}
+
 void inicializarRoleta(noPtr *ult, int *qtd) {
-    for (int i = 0; i <= 36; i++) {
+    for (int i = 0; i <= 36; i++){
         noPtr p = new no;
         p->info = i;
 
@@ -27,8 +46,18 @@ void listarRoleta(noPtr ult, int qtd) {
         noPtr atual = ult->prox; 
         cout << "\nNumeros na roleta: ";
         for (int i = 0; i < qtd; i++) {
-            cout << atual->info << " ";
+            cout << cores(atual->info)
+                 << " ["
+                 << atual->info
+                 << "] "
+                 << "\033[0m ";
             atual = atual->prox;
+
+            if (i == 0){
+                cout << "\n\n";
+            }else if ((i % 12) == 0){
+                cout << "\n\n";
+            }
         }
         cout << "\n";
     }
