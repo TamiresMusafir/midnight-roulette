@@ -38,7 +38,7 @@ int main(){
                      << "\nQuanto voce deseja apostar? ";
                 cin  >> valorAposta;
 
-                if(valorAposta >= 0 && valorAposta <= carteira){
+                if(valorAposta > 0 && valorAposta <= carteira){
                     cout << "\nDigite o numero da sua aposta (0 a 36): ";
                     cin >> aposta;
 

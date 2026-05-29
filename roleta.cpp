@@ -73,10 +73,13 @@ void girarRoleta(noPtr ult, int aposta, float *carteira, float valorAposta) {
 
     noPtr bolinha = ult->prox;
     
-    int impulso = (rand() % 40) + 40; 
+    int impulso = (rand() % 50) + 45; 
     int delay = 50000; 
 
     for (int i = 0; i < impulso; i++) {
+
+        bolinha = bolinha->prox;
+
         cout << "\033[2J\033[1;1H"
              << "\n* A roleta esta girando... * \n\n";
 
@@ -98,7 +101,6 @@ void girarRoleta(noPtr ult, int aposta, float *carteira, float valorAposta) {
             }
         }
 
-        bolinha = bolinha->prox;
         usleep(delay);
 
         if (i > (impulso - 15)) {
@@ -106,11 +108,11 @@ void girarRoleta(noPtr ult, int aposta, float *carteira, float valorAposta) {
         }
     }
 
-    cout << "\n========================================";
-    cout << "\n>>>  A BOLINHA PAROU NO NUMERO: " << (bolinha->info)-1 << "  <<<";
+    cout << "========================================";
+    cout << "\n>>>  A BOLINHA PAROU NO NUMERO: " << bolinha->info << "  <<<";
     cout << "\n========================================\n";
 
-    if ((bolinha->info)+1 == aposta) {
+    if (bolinha->info == aposta) {
         *carteira += (valorAposta * 35);
         cout << "🎉 PARABENS! Voce acertou o numero e ganhou R$" << fixed << setprecision(2) << (valorAposta * 35) << "!\n";
     } else {
