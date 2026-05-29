@@ -44,6 +44,11 @@ void inicializarRoleta(noPtr *ult, int *qtd) {
 void listarRoleta(noPtr ult, int qtd) {
     if (ult != NULL) {
         noPtr atual = ult->prox; 
+
+        cout << "\n========================================\n"
+             << "       🎰 MIDNIGHT ROULETTE 🎰          \n"
+             << "========================================\n";
+
         cout << "\nNumeros na roleta: ";
         for (int i = 0; i < qtd; i++) {
             cout << cores(atual->info)
@@ -64,25 +69,53 @@ void listarRoleta(noPtr ult, int qtd) {
 }
 
 void girarRoleta(noPtr ult, int aposta, float *carteira, float valorAposta) {
-    noPtr bolinha = ult->prox;
-    int impulso = (rand() % 50) + 45;
+    if (ult == NULL) return;
 
-    cout << "\n* A roleta esta girando...";
+    noPtr bolinha = ult->prox;
+    
+    int impulso = (rand() % 40) + 40; 
+    int delay = 50000; 
+
     for (int i = 0; i < impulso; i++) {
+        cout << "\033[2J\033[1;1H"
+             << "\n* A roleta esta girando... * \n\n";
+
+        noPtr atual = ult->prox;
+        for (int j = 0; j <= 36; j++) {
+            
+            if (atual == bolinha) {
+                cout << "\x1b[43m\x1b[30m [" << atual->info << "] \033[0m ";
+            } else {
+                cout << cores(atual->info) << " [" << atual->info << "] \033[0m ";
+            }
+
+            atual = atual->prox;
+
+            if (j == 0) {
+                cout << "\n\n";
+            } else if ((j % 12) == 0) {
+                cout << "\n\n";
+            }
+        }
+
         bolinha = bolinha->prox;
+        usleep(delay);
+
+        if (i > (impulso - 15)) {
+            delay += 25000;
+        }
     }
 
-    cout << "\n=======================================";
-    cout << "\n>>>  A BOLINHA PAROU NO NUMERO: " << bolinha->info << "  <<<";
-    cout << "\n=======================================\n";
+    cout << "\n========================================";
+    cout << "\n>>>  A BOLINHA PAROU NO NUMERO: " << (bolinha->info)-1 << "  <<<";
+    cout << "\n========================================\n";
 
-    if (bolinha->info == aposta) {
+    if ((bolinha->info)+1 == aposta) {
         *carteira += (valorAposta * 35);
-        cout << "PARABENS! Voce acertou o numero e ganhou R$" << fixed << setprecision(2) << (valorAposta * 35) << "!\n"
-             << "Saldo: R$ " << fixed << setprecision(2) << *carteira << "\n";
+        cout << "🎉 PARABENS! Voce acertou o numero e ganhou R$" << fixed << setprecision(2) << (valorAposta * 35) << "!\n";
     } else {
         *carteira -= valorAposta;
-        cout << "Nao foi dessa vez! Voce perdeu R$" << fixed << setprecision(2) << valorAposta << ".\n"
-             << "Saldo: R$ " << fixed << setprecision(2) << *carteira << "\n";
+        cout << "😢 Nao foi dessa vez! Voce perdeu R$" << fixed << setprecision(2) << valorAposta << ".\n";
     }
+    cout << "Saldo Atual: R$ " << fixed << setprecision(2) << *carteira << "\n";
 }
