@@ -6,6 +6,16 @@ O projeto foi construído como um exercício acadêmico para aplicar conceitos p
 
 ---
 
+## 📸 Demonstração
+
+### Tela Inicial
+![Tela Inicial](images/ex.png)
+
+### Giro da Roleta
+![Giro da Roleta](images/ex2.png)
+
+---
+
 ## 🛠️ Funcionalidades do Jogo
 
 * **Sistema de Carteira (Saldo):** O jogador inicia com um saldo de **R$ 100,00** para fazer suas apostas.
@@ -53,11 +63,18 @@ Se você preferir baixar os arquivos e compilar no seu computador, garanta que p
 
 ## 📁 Estrutura do Repositório
 
-├── main.cpp     # Fluxo principal e menus do jogo
-├── roleta.cpp   # Corpo das funções e lógica de giro da roleta
-└── roleta.h     # Declaração da struct e das assinaturas de função
+       ├── main.cpp     # Fluxo principal e menus do jogo
+       ├── roleta.cpp   # Corpo das funções e lógica de giro da roleta
+       └── roleta.h     # Declaração da struct e das assinaturas de função
+       ├── Dockerfile        # Configuração do container
+       ├── README.md
+       └── images
+           ├── ex.png        # Tela principal
+           └── ex2.png       # Exemplo de jogada
 
 ---
+
+
 
 ## 👤 Autor
 
