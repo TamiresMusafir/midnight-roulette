@@ -69,7 +69,8 @@ void listarRoleta(noPtr ult, int qtd) {
 }
 
 void girarRoleta(noPtr ult, int aposta, float *carteira, float valorAposta) {
-    if (ult == NULL) return;
+    if (ult == NULL) 
+        return;
 
     noPtr bolinha = ult->prox;
     
@@ -114,10 +115,10 @@ void girarRoleta(noPtr ult, int aposta, float *carteira, float valorAposta) {
 
     if (bolinha->info == aposta) {
         *carteira += (valorAposta * 35);
-        cout << "🎉 PARABENS! Voce acertou o numero e ganhou R$" << fixed << setprecision(2) << (valorAposta * 35) << "!\n";
+        cout << "PARABENS! Voce acertou o numero e ganhou R$" << fixed << setprecision(2) << (valorAposta * 35) << "!\n";
     } else {
         *carteira -= valorAposta;
-        cout << "😢 Nao foi dessa vez! Voce perdeu R$" << fixed << setprecision(2) << valorAposta << ".\n";
+        cout << "Nao foi dessa vez! Voce perdeu R$" << fixed << setprecision(2) << valorAposta << ".\n";
     }
     cout << "Saldo Atual: R$ " << fixed << setprecision(2) << *carteira << "\n";
 }
