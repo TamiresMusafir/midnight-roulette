@@ -66,11 +66,11 @@ Se você preferir baixar os arquivos e compilar no seu computador, garanta que p
        ├── main.cpp     # Fluxo principal e menus do jogo
        ├── roleta.cpp   # Corpo das funções e lógica de giro da roleta
        └── roleta.h     # Declaração da struct e das assinaturas de função
-       ├── Dockerfile        # Configuração do container
+       ├── Dockerfile   # Configuração do container
        ├── README.md
        └── images
-           ├── ex.png        # Tela principal
-           └── ex2.png       # Exemplo de jogada
+           ├── ex.png   # Tela principal
+           └── ex2.png  # Exemplo de jogada
 
 ---
 
